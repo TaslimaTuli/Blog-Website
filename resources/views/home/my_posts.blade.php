@@ -95,7 +95,12 @@
             @if ($data->status === 'Pending')
             <p class="pending-status">{{ $data->status }}</p>
         @endif
-            <div><img src="/postImage/{{ $data->image }}" alt=""></div>
+            {{-- <div><img src="/postImage/{{ $data->image }}" alt=""></div> --}}
+             @if ($data->image)
+                <div><img src="/postImage/{{ $data->image }}"></div>
+            @else
+                <div><img src="/postImage/no-image.png"></div>
+            @endif
             <h1>{{ $data->title }}</h1>
 
 

@@ -28,8 +28,10 @@
 
         .blog_content img {
             display: block;
-            margin: 0 auto; /* Center the image horizontally */
-            max-width: 40%;
+            margin: 0 auto;
+            /* Center the image horizontally */
+            /* max-width: 40%; */
+            max-width: 100%;
             height: auto;
             border-radius: 5px;
             margin-bottom: 20px;
@@ -76,14 +78,14 @@
 
         .pending-status {
 
-        color: red;
-        text-align: right;
-        margin-left: auto; /* Aligns the entire element to the right */
-        font-weight: bold;
-        /* padding: 5px 10px;
+            color: red;
+            text-align: right;
+            margin-left: auto;
+            /* Aligns the entire element to the right */
+            font-weight: bold;
+            /* padding: 5px 10px;
         border-radius: 5px; */
-    }
-
+        }
     </style>
 </head>
 
@@ -93,19 +95,24 @@
     @foreach ($data->reverse() as $data)
         <div class="blog_content">
             @if ($data->status === 'Pending')
-            <p class="pending-status">{{ $data->status }}</p>
-        @endif
-            <div><img src="/postImage/{{ $data->image }}" alt=""></div>
+                <p class="pending-status">{{ $data->status }}</p>
+            @endif
+            {{-- <div><img src="/postImage/{{ $data->image }}" alt=""></div> --}}
+            @if ($data->image)
+                <div><img src="/postImage/{{ $data->image }}"></div>
+            @else
+                <div><img src="/postImage/no-image.png"></div>
+            @endif
             <h1>{{ $data->title }}</h1>
             <h2>{{ $data->description }}</h2>
 
             @php
-            // Convert timestamp to Carbon instance
-            $createdAt = \Carbon\Carbon::parse($data->created_at);
+                // Convert timestamp to Carbon instance
+                $createdAt = \Carbon\Carbon::parse($data->created_at);
             @endphp
 
-             <p class="posted-by">- Posted by <span style="font-weight:bold;">{{ $data->name }}</span>
-                 at {{ $createdAt->toFormattedDateString() }}
+            <p class="posted-by">- Posted by <span style="font-weight:bold;">{{ $data->name }}</span>
+                at {{ $createdAt->toFormattedDateString() }}
                 {{ $createdAt->format('h:i A') }}</p>
             {{-- <p class="posted-by"> - Posted by {{ $data->name }} at {{ $data->created_at}}</p> --}}
 
@@ -113,9 +120,7 @@
     @endforeach
     @include('home.footer')
 
-    <script>
-
-    </script>
+    <script></script>
 </body>
 
 </html>

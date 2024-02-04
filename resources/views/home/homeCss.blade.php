@@ -65,7 +65,7 @@
 
     .services_img {
         max-width: 100%;
-        height: 200px;
+        height: 250px;
         /* Set a fixed height for the images */
         object-fit: cover;
         /* Ensure images cover the specified height without being stretched */

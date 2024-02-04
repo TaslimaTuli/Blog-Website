@@ -11,6 +11,7 @@ class homeController extends Controller
 {
     public function index(){
         $data = post::where('status', '=', 'Active' )->get();
+
         if(Auth::id()){
             $user = Auth()->user()->userType;
 
@@ -47,7 +48,7 @@ class homeController extends Controller
         $request->validate([
         'title' => 'required|max:255',
         'description' => 'required',
-        //'image' => 'required|image|mimes:jpeg,png,jpg,gif',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1999',
     ]);
         //////
         $user = Auth()->user();
@@ -71,7 +72,7 @@ class homeController extends Controller
             $imgName = time() . '.' . $img->getClientOriginalExtension();
             //generates a unique filename for the uploaded image based on the current timestamp and the original extension of the file
             $request->image->move('postImage', $imgName); //keep image in public folder (postImage)
-            $post->image = $imgName; //keep image in db
+            $post->image = $imgName;
         }
 
         $post->save();

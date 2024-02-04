@@ -128,7 +128,7 @@
             </div>
 
             <div class="post">
-                <label>Image</label>
+                <label>Image (Max Size: 2MB)</label>
                 <div class="image-preview" id="imagePreview"></div>
                 <input class="form-control form-control-lg" id="formFileLg" type="file" name="image" />
                 @error('image')

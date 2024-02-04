@@ -7,7 +7,12 @@
              <div class="row">
                  @foreach ($data as $data)
                      <div class="col-md-4">
-                         <div><img src="/postImage/{{ $data->image }}" class="services_img"></div>
+                         {{-- <div><img src="/postImage/{{ $data->image }}" class="services_img"></div> --}}
+                         @if ($data->image)
+                             <div><img src="/postImage/{{ $data->image }}" class="services_img"></div>
+                         @else
+                             <div><img src="/postImage/no-image.png" class="services_img"></div>
+                         @endif
                          <h2>{{ $data->title }}</h2>
                          <h4>Posted by <b>{{ $data->name }}</b></h4>
                          <div class="btn_main"><a href="{{ url('read_more', $data->id) }}">Read More</a></div>
