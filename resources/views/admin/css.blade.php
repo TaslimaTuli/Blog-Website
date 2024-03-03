@@ -11,10 +11,10 @@
     <!-- Custom Font Icons CSS-->
     <link rel="stylesheet" href="adminDashboard/css/font.css">
     <!-- Google fonts - Muli-->
-    <link rel="stylesheet" href="adminDashboard/https://fonts.googleapis.com/css?family=Muli:300,400,700">
+    {{-- <link rel="stylesheet" href="adminDashboard/https://fonts.googleapis.com/css?family=Muli:300,400,700"> --}}
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="adminDashboard/css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="adminDashboard/css/custom.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="adminDashboard/img/favicon.ico">
+    {{-- <link rel="shortcut icon" href="adminDashboard/img/favicon.ico"> --}}

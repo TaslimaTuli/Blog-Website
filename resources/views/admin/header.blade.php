@@ -1,7 +1,7 @@
 
  <header class="header">
      <nav class="navbar navbar-expand-lg">
-         <div class="search-panel">
+         {{-- <div class="search-panel">
              <div class="search-inner d-flex align-items-center justify-content-center">
                  <div class="close-btn">Close <i class="fa fa-close"></i></div>
                  <form id="searchForm" action="#">
@@ -11,7 +11,7 @@
                      </div>
                  </form>
              </div>
-         </div>
+         </div> --}}
          <div class="container-fluid d-flex align-items-center justify-content-between">
              <div class="navbar-header">
                  <!-- Navbar Header--><a href="/" class="navbar-brand">
@@ -31,7 +31,7 @@
                  </div> --}}
 
                  <div class="list-inline-item dropdown">
-                     <a id="navbarDropdownMenuLink2" href="http://example.com" data-toggle="dropdown"
+                     <a id="navbarDropdownMenuLink2" href="" data-toggle="dropdown"
                          aria-haspopup="true" aria-expanded="false" class="nav-link tasks-toggle">
                          <i class="icon icon-email"></i>
                          <span class="badge dashbg-3" id="newPostBadge"></span>
@@ -49,7 +49,7 @@
                      </div>
                  </div>
 
-                 <!-- Log out  -->
+                 <!-- Log out and profile -->
                  <div class="list-inline-item logout">
                      <x-responsive-nav-link :href="route('profile.edit')">
                          {{-- <p> {{ __('Profile') }} </p> --}}

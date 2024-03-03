@@ -1,28 +1,3 @@
-<style>
-    .bar-chart-section {
-        padding: 20px;
-    }
-
-    .bar-chart-container {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .bar-chart-block {
-        background-color: #2d3035;
-        border: 1px solid #dddddd31;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        margin-bottom: 20px;
-    }
-
-    .bar-chart-block canvas {
-        width: 100%;
-        height: auto;
-    }
-</style>
-
 <div class="page-content">
     <div class="page-header">
         <div class="container-fluid">

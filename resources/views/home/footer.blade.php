@@ -4,12 +4,12 @@
                <input type="text" class="mail_text" placeholder="Enter your email" name="Enter your email">
                <div class="subscribe_bt"><a href="#">Subscribe</a></div>
             </div> --}}
-            <div class="location_main">
+            {{-- <div class="location_main">
                <div class="call_text"><img src="images/call-icon.png"> </div>
                <div class="call_text"><a href="#">Call +01 1234567890</a></div>
                <div class="call_text"><img src="images/mail-icon.png"></div>
-               <div class="call_text"><a href="#">neko@gmail.com</a></div>
-            </div>
+               <div class="call_text"><a href="#">neko@info.com</a></div>
+            </div> --}}
             <div class="social_icon">
                <ul>
                   <li><a href="#"><img src="images/fb-icon.png"></a></li>
@@ -20,7 +20,7 @@
             </div>
             <div class="copyright_section">
          <div class="container">
-            <p class="copyright_text">2024 All Rights Reserved.</p>
+            <p class="copyright_text">2024 All Rights Reserved</p>
          </div>
       </div>
          </div>

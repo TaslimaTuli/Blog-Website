@@ -69,8 +69,8 @@ class homeController extends Controller
 
         $img = $request->image; //retrieves the uploaded image
         if ($img) {
-            $imgName = time() . '.' . $img->getClientOriginalExtension();
             //generates a unique filename for the uploaded image based on the current timestamp and the original extension of the file
+            $imgName = time() . '.' . $img->getClientOriginalExtension();
             $request->image->move('postImage', $imgName); //keep image in public folder (postImage)
             $post->image = $imgName;
         }
@@ -133,8 +133,8 @@ class homeController extends Controller
 
         $img = $request->image;
          if ($img) {
-            $imgName = time() . '.' . $img->getClientOriginalExtension();
             //generates a unique filename for the uploaded image based on the current timestamp and the original extension of the file
+            $imgName = time() . '.' . $img->getClientOriginalExtension();
             $request->image->move('postImage', $imgName); //keep image in public folder (postImage)
             $post->image = $imgName; //keep image in db
         }

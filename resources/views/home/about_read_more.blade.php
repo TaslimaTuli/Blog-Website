@@ -2,37 +2,8 @@
 <html lang="en">
 
 <head>
-    <base href="/public">
+    {{-- <base href="/public"> --}}
     @include('home.homeCss')
-    <style>
-        .about-section {
-            max-width: 800px;
-            margin: 20px auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-section h1 {
-            font-size: 36px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .about-section p {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .about-section h2 {
-            font-size: 28px;
-            color:  #333;
-            margin-bottom: 10px;
-        }
-
-    </style>
 </head>
 
 <body>
