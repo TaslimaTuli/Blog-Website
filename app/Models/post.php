@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class post extends Model
 {
     use HasFactory;
+
+    public function likes(){
+        return $this->belongsToMany(User::class, 'post_like')->withTimestamps();
+    }
+
 }
+
+

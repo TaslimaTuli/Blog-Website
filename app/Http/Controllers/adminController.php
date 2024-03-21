@@ -17,10 +17,10 @@ class adminController extends Controller
     public function add_post(Request $request)
     {
         $request->validate([
-        'title' => 'required|max:255',
-        'description' => 'required',
-        // 'image' => 'required|image|mimes:jpeg,png,jpg,gif',
-    ]);
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1999',
+        ]);
         //////
         $user = Auth()->user();
         $user_id = $user->id;
@@ -47,14 +47,17 @@ class adminController extends Controller
         }
 
         $post->save();
-        alert()->success('Congrats!!','Post Created Successfully :)');
+        alert()->success('Congrats!!', 'Post Created Successfully :)');
 
         return redirect('show_post')->with('message', 'Post Created Successfully :)');
     }
 
     public function show_post()
     {
-        $data = post::where('status', 'Active')->get();
+        // $data = post::where('status', 'Active')->get();
+        $data = post::where('status', 'Active')
+            ->orderBy('created_at', 'DESC')
+            ->paginate(3);
         return view('admin.show_post', compact('data'));
     }
 
@@ -63,13 +66,13 @@ class adminController extends Controller
         $post = post::find($id);
         $image = $post->image;
         if ($image) {
-            $imagePath = public_path('postImage/'.$image);
+            $imagePath = public_path('postImage/' . $image);
             if (file_exists($imagePath)) {
                 unlink($imagePath);
             }
         }
         $post->delete();
-        alert()->success('Congrats!!','Post Deleted Successfully :)');
+        alert()->success('Congrats!!', 'Post Deleted Successfully :)');
         return redirect()->back();
     }
 
@@ -80,14 +83,14 @@ class adminController extends Controller
         return view('admin.edit_post', compact('post'))->with('message', 'Post Updated Successfully :)');
     }
 
-    public function updated_post(Request $request,$id)
+    public function updated_post(Request $request, $id)
     {
         $post = post::find($id);
         $post->title = $request->title;
-        $post->description=$request->description;
+        $post->description = $request->description;
 
         $img = $request->image;
-         if ($img) {
+        if ($img) {
             $imgName = time() . '.' . $img->getClientOriginalExtension();
             //generates a unique filename for the uploaded image based on the current timestamp and the original extension of the file
             $request->image->move('postImage', $imgName); //keep image in public folder (postImage)
@@ -95,7 +98,7 @@ class adminController extends Controller
         }
 
         $post->save();
-        alert()->success('Congrats!!','Post Updated Successfully :)');
+        alert()->success('Congrats!!', 'Post Updated Successfully :)');
 
         return redirect('/show_post');
     }
@@ -105,7 +108,7 @@ class adminController extends Controller
         $post = post::find($id);
         $post->status = 'Active';
         $post->save();
-        alert()->success('Congrats!!','Post is Approved!! :)');
+        alert()->success('Congrats!!', 'Post is Approved!! :)');
         return redirect()->back();
     }
 
@@ -136,12 +139,12 @@ class adminController extends Controller
 
     public function pending_post()
     {
-        $data = post::where('status', '=', 'Pending' )->get();
+        $data = post::where('status', '=', 'Pending')->get();
         return view('admin.pending_post', compact('data'));
     }
 
 
-//bar chart
+    //bar chart
     public function getChartData()
     {
         // Fetch data from the database
@@ -179,4 +182,4 @@ class adminController extends Controller
 
 
 
- }
+}

@@ -391,6 +391,15 @@ nav.navbar .sidebar-toggle {
     outline: none;
 }
 
+/* pagination */
+
+.paginate {
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* pagination end */
+
 nav.navbar a {
     color: inherit;
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\PostLikeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\User;
 use Illuminate\Support\Facades\Route;
@@ -64,7 +65,7 @@ Route::get('/blogs', [homeController::class, 'blogs']);
 // Route::get('/search', [adminController::class, 'search']);
 
 
-///user create post
+///user
 Route::middleware(['auth', 'verified', 'user'])->group(function () {
 Route::get('/create_post',[homeController::class, 'create_post']); //->middleware(['auth', 'verified']);
 Route::post('/user_post', [homeController::class, 'user_post']); //->middleware(['auth', 'verified']);
@@ -73,10 +74,6 @@ Route::get('/user_delete_post/{id}', [homeController::class, 'user_delete_post']
 Route::get('/user_edit_post/{id}', [homeController::class, 'user_edit_post']); //->middleware(['auth', 'verified', 'admin']);
 Route::post('/user_updated_post/{id}', [homeController::class, 'user_updated_post']); //->middleware(['auth', 'verified', 'admin']);
 
-
 });
-
-
-
 
 

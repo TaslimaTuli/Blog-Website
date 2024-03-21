@@ -40,7 +40,7 @@
             @foreach ($data as $item)
                 <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                     <div class="container">
-                        <h1 class="banner_taital">Admin's Post</h1>
+                        <h1 class="banner_taital">Admin Post</h1>
                         <p class="banner_text">{{ $item->title }}</p>
                         <div class="btn_main"><a href="{{ url('read_more', $item->id) }}">Read More</a></div>
                     </div>

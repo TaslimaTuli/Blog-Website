@@ -39,11 +39,11 @@
                     <th>Posted by</th>
                     <th>Created at</th>
                     <th>Status</th>
-                   {{-- <th>Actions</th>  --}}
+                    {{-- <th>Actions</th>  --}}
                     <th>Delete</th>
                     <th>Edit</th>
                 </tr>
-                @foreach ($data->reverse() as $post)
+                @foreach ($data as $post)
                     <tr>
                         <td class="no">{{ $post->title }}</td>
                         <td>{{ $post->description }}</td>
@@ -51,11 +51,11 @@
                         <td>{{ $post->name }}</td>
 
                         @php
-                        // Convert timestamp to Carbon instance
-                        $createdAt = \Carbon\Carbon::parse($post->created_at);
+                            // Convert timestamp to Carbon instance
+                            $createdAt = \Carbon\Carbon::parse($post->created_at);
                         @endphp
                         <td class="no">{{ $createdAt->toFormattedDateString() }} ,
-                             {{ $createdAt->format('h:i A') }}</td>
+                            {{ $createdAt->format('h:i A') }}</td>
                         {{-- <td class="no">{{ $post->created_at }}</td> --}}
                         <td>{{ $post->status }}</td>
                         {{-- <td class="no">
@@ -70,13 +70,16 @@
                                 Delete</a>
                         </td>
                         <td>
-                            <a href="{{ url('edit_post', $post->id) }}" class="btn btn-success">
+                            <a href="{{ url('edit_post', $post->id) }}" class="btn btn-outline-success">
                                 Edit</a>
                         </td>
                     </tr>
                 @endforeach
-            </table>
 
+            </table>
+            <div class="paginate">
+                {{ $data->links('pagination::bootstrap-5') }}
+            </div>
 
         </div>
 
